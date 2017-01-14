@@ -5,7 +5,6 @@ export const getGenerator = store => (url, action, optionalData = {}) => {
   const handler = responseHandler(store.dispatch, action, optionalData);
   fetch(url)
     .then((response) => {
-      // TODO: Handle 300/400/500 status
       if (response.status === 200) {
         response
           .json()
@@ -16,4 +15,16 @@ export const getGenerator = store => (url, action, optionalData = {}) => {
       }
     })
     .catch(handler);
+};
+
+export const batchGenerator = store => (urls, action, optionalData = {}) => {
+  const reqs = urls.map(url =>
+    fetch(url)
+      .then(res => res.status === 200 && res.json())
+  );
+
+  Promise
+    .all(reqs)
+    .then(data => store.dispatch({ type: `${action}_SUCCESS`, optionalData, data }))
+    .catch(err => store.dispatch({ type: `${action}_ERROR`, optionalData, data: err }));
 };

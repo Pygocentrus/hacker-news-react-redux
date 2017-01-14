@@ -1,6 +1,6 @@
 import * as types from '../constants/actionTypes';
 
-const initialState = {};
+const initialState = { items: [] };
 
 export default function news(state = initialState, action) {
   switch (action.type) {

@@ -5,3 +5,9 @@ export function getNewsStories() {
     type: types.GET_NEWS_STORIES,
   };
 };
+
+export function getTopStories() {
+  return {
+    type: types.GET_TOP_STORIES,
+  };
+};
