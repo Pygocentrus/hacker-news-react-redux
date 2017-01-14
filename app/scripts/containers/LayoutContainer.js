@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import Header from '../components/Header';
 
 const LayoutContainer = ({ children }) =>
-  <div>
+  <div className="LayoutContainer">
     <Header />
-    <div className="container">
+    <div className="LayoutContainer-content">
       {children}
     </div>
   </div>;

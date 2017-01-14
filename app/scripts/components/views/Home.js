@@ -4,11 +4,10 @@ import ItemsList from '../news/ItemsList';
 class Home extends Component {
 
   componentDidMount() {
-    // this.props.getTopStories();
+    this.props.getTopStories();
   }
 
   render() {
-    console.info(this.props);
     return (
       <div>
         <div>Hello there!</div>

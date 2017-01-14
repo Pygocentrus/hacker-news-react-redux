@@ -1,0 +1,5 @@
+@mixin bp($point) {
+  @media screen and (min-width: $point / 16 + em) {
+    @content;
+  }
+}

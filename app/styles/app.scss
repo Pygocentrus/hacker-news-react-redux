@@ -1,1 +1,8 @@
-@import 'layout';
+@import 'settings/reset';
+@import 'settings/variables';
+@import 'settings/mixins';
+@import 'settings/global';
+
+@import 'layout/LayoutContainer';
+@import 'layout/Header';
+@import 'components/generic/ItemsList';
