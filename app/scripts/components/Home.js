@@ -1,6 +1,14 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-const Home = () =>
-  <h1>HN clone!</h1>;
+class Home extends Component {
+  componentDidMount() {
+    this.props.getNewsStories();
+  }
+  render() {
+    return (
+      <div>Hello there!</div>
+    );
+  }
+}
 
 export default Home;

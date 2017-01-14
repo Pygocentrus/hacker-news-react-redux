@@ -1,0 +1,2 @@
+export const API_GENERIC = 'API_GENERIC';
+export const GET_NEWS_STORIES = 'GET_NEWS_STORIES';
