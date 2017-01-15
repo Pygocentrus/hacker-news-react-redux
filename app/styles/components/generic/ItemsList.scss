@@ -51,6 +51,7 @@
 
 .Item-postHeaderLink {
   display: none;
+
   @include bp($bp-small) {
     display: block;
     float: right;
@@ -79,6 +80,14 @@
 .Item-time {
   display: inline-block;
   margin-right: 20px;
+}
+
+.Item-time {
+  display: none;
+
+  @include bp($bp-xsmall) {
+    display: inline-block;;
+  }
 }
 
 .Item-gradeIcon,

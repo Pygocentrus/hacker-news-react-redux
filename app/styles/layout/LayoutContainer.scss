@@ -4,4 +4,8 @@
 
 .LayoutContainer-child {
   padding: 20px;
+
+  @include bp($bp-medium) {
+    padding: 20px 100px;
+  }
 }
