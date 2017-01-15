@@ -3898,6 +3898,10 @@ through@2, through@~2.3.4:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
 
+timeago.js@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/timeago.js/-/timeago.js-2.0.4.tgz#11ee47196916f8e3687c497eb76cdfbeec6d7162"
+
 timers-browserify@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/timers-browserify/-/timers-browserify-2.0.2.tgz#ab4883cf597dcd50af211349a00fbca56ac86b86"

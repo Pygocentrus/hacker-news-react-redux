@@ -73,12 +73,18 @@
   border-bottom: 1px dotted $txt-color;
 }
 
-.Item-author, .Item-grade, .Item-comments {
+.Item-author,
+.Item-grade,
+.Item-comments,
+.Item-time {
   display: inline-block;
   margin-right: 20px;
 }
 
-.Item-gradeIcon, .Item-commentsIcon, .Item-authorIcon {
+.Item-gradeIcon,
+.Item-commentsIcon,
+.Item-authorIcon,
+.Item-timeIcon {
   display: inline-block!important;
   width: 15px!important;
   height: 15px!important;
@@ -87,7 +93,10 @@
   margin-right: 5px;
 }
 
-.Item-authorIdentity, .Item-gradeScore, .Item-commentsCounter {
+.Item-authorIdentity,
+.Item-gradeScore,
+.Item-commentsCounter,
+.Item-timeIndication {
   display: inline-block;
   vertical-align: middle;
 }

@@ -1,10 +1,14 @@
 import React, { PropTypes, Component } from 'react';
+import timeago from 'timeago.js';
 import Paper from 'material-ui/Paper';
 import Grade from 'material-ui/svg-icons/action/grade';
 import ChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
 import Person from 'material-ui/svg-icons/social/person';
+import Time from 'material-ui/svg-icons/action/watch-later';
 import domainFromUrl from '../../utils/domainFromUrl';
 import { userPage } from '../../utils/hnConf';
+
+const timeagoInstance = new timeago();
 
 const getItems = (items) =>
   items.map((item, index) =>
@@ -32,6 +36,10 @@ const getItems = (items) =>
             <div className="Item-comments">
               <ChatBubble className="Item-commentsIcon" />
               <div className="Item-commentsCounter">{item.kids && item.kids.length || 0}</div>
+            </div>
+            <div className="Item-time">
+              <Time className="Item-timeIcon" />
+              <div className="Item-timeIndication">{timeagoInstance.format(item.time * 1000)}</div>
             </div>
           </div>
         </div>

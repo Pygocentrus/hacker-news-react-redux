@@ -4,8 +4,8 @@ import { getNewsStories, getTopStories } from '../actions/api';
 import Home from '../components/views/Home';
 
 const mapStateToProps = (state) => {
-  const { topStories, newStories } = state;
-  return { topStories, newStories };
+  const { topStories, newsStories } = state;
+  return { topStories, newsStories };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
