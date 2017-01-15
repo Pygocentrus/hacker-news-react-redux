@@ -1,6 +1,18 @@
 import { take } from 'lodash';
-import { conf, MAX_NEWS, item, user, maxitem, topstories, newstories, beststories } from './hnConf';
 import { API_GENERIC } from '../constants/actionTypes';
+import {
+  conf,
+  MAX_NEWS,
+  item,
+  user,
+  maxitem,
+  topstories,
+  newstories,
+  beststories,
+  askstories,
+  showstories,
+  jobstories
+} from './hnConf';
 
 const defaultConf = { action: API_GENERIC, optionalData: {} };
 
@@ -37,6 +49,18 @@ class HackerNewsApi {
 
   getNewsStories(config = defaultConf) {
     return this.get(newstories(), config);
+  }
+
+  getAskStories(config = defaultConf) {
+    return this.get(askstories(), config);
+  }
+
+  getShowStories(config = defaultConf) {
+    return this.get(showstories(), config);
+  }
+
+  getJobsStories(config = defaultConf) {
+    return this.get(jobstories(), config);
   }
 
   getItemsDetails(ids = [], config = defaultConf) {

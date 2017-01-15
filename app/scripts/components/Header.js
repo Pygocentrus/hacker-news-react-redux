@@ -6,7 +6,9 @@ import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { Link } from 'react-router';
+
 import * as routes from '../constants/routes';
+import * as sections from '../constants/sections';
 
 class Header extends Component {
   constructor(props) {
@@ -18,7 +20,15 @@ class Header extends Component {
     e.preventDefault();
     if (!isUndefined(child)) {
       this.toggleMenu();
-      // TODO: Navigate towards section using `child.props.primaryText`
+
+      switch (child.props.primaryText) {
+        case sections.TOP: { this.props.getTopStories(); break; }
+        case sections.NEWS: { this.props.getNewsStories(); break; }
+        case sections.SHOW: { this.props.getShowStories(); break; }
+        case sections.ASK: { this.props.getAskStories(); break; }
+        case sections.JOBS: { this.props.getJobsStories(); break; }
+        default:
+      }
     }
   }
 
@@ -39,11 +49,11 @@ class Header extends Component {
             anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
             targetOrigin={{ horizontal: 'right', vertical: 'top' }}
           >
-            <MenuItem primaryText="News" />
-            <MenuItem primaryText="Comments" />
-            <MenuItem primaryText="Show" />
-            <MenuItem primaryText="Ask" />
-            <MenuItem primaryText="Jobs" />
+            <MenuItem primaryText={sections.TOP} />
+            <MenuItem primaryText={sections.NEWS} />
+            <MenuItem primaryText={sections.SHOW} />
+            <MenuItem primaryText={sections.ASK} />
+            <MenuItem primaryText={sections.JOBS} />
           </IconMenu>
         </div>
       </AppBar>
@@ -53,6 +63,14 @@ class Header extends Component {
 
 Header.contextTypes = {
   router: PropTypes.object.isRequired,
+};
+
+Header.propTypes = {
+  getTopStories: PropTypes.func.isRequired,
+  getNewsStories: PropTypes.func.isRequired,
+  getShowStories: PropTypes.func.isRequired,
+  getAskStories: PropTypes.func.isRequired,
+  getJobsStories: PropTypes.func.isRequired,
 };
 
 export default Header;

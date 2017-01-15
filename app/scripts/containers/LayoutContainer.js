@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-import Header from '../components/Header';
+import HeaderContainer from './HeaderContainer';
 
 const LayoutContainer = ({ children }) =>
   <div className="LayoutContainer">
-    <Header />
+    <HeaderContainer />
     <div className="LayoutContainer-child">
       {children}
     </div>

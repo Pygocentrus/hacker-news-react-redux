@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import newsStories from './newsStories';
-import topStories from './topStories';
+import stories from './stories';
 
 const rootReducer = combineReducers({
-  newsStories,
-  topStories,
+  stories,
 });
 
 export default rootReducer;

@@ -15,18 +15,30 @@ const apiMiddleware = store => next => action => {
       hnApi.getNewsStories({ action: types.GET_NEWS_STORIES });
       next(action);
       break;
-    case types.GET_NEWS_STORIES_SUCCESS:
-      hnApi.getItemsDetails(action.data, { action: types.GET_NEWS_STORIES_DETAILS });
-      next(action);
-      break;
     case types.GET_TOP_STORIES:
       hnApi.getTopStories({ action: types.GET_TOP_STORIES });
       next(action);
       break;
-    case types.GET_TOP_STORIES_SUCCESS:
-      hnApi.getItemsDetails(action.data, { action: types.GET_TOP_STORIES_DETAILS });
+    case types.GET_ASK_STORIES:
+      hnApi.getAskStories({ action: types.GET_ASK_STORIES });
       next(action);
       break;
+    case types.GET_SHOW_STORIES:
+      hnApi.getShowStories({ action: types.GET_SHOW_STORIES });
+      next(action);
+      break;
+    case types.GET_JOBS_STORIES:
+      hnApi.getJobsStories({ action: types.GET_JOBS_STORIES });
+      next(action);
+      break;
+    case types.GET_NEWS_STORIES_SUCCESS:
+    case types.GET_TOP_STORIES_SUCCESS:
+    case types.GET_ASK_STORIES_SUCCESS:
+    case types.GET_SHOW_STORIES_SUCCESS:
+    case types.GET_JOBS_STORIES_SUCCESS:
+        hnApi.getItemsDetails(action.data, { action: types.GET_STORIES_DETAILS });
+        next(action);
+        break;
     default:
       next(action);
       break;
