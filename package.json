@@ -5,8 +5,8 @@
   "author": "Pygocentrus",
   "license": "MIT",
   "scripts": {
-    "build": "NODE_ENV=production webpack --config webpack.config.js",
-    "serve": "webpack-dev-server --hot --inline --progress --colors --devtool source-map --config webpack.config.js"
+    "build": "NODE_ENV=production node_modules/.bin/webpack --config webpack.config.js",
+    "serve": "node_modules/.bin/webpack-dev-server --hot --inline --progress --colors --devtool source-map --config webpack.config.js"
   },
   "dependencies": {
     "algoliasearch": "^3.20.3",
