@@ -1,5 +1,7 @@
 import React, { PropTypes, Component } from 'react';
+import CircularProgress from 'material-ui/CircularProgress';
 import ItemsList from '../news/ItemsList';
+import Loader from '../generic/Loader';
 
 class Home extends Component {
 
@@ -10,7 +12,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <ItemsList items={this.props.topStories.items} />
+        {
+          !!this.props.topStories.items.length
+            ? <ItemsList items={this.props.topStories.items} />
+            : <Loader />
+        }
       </div>
     );
   }
