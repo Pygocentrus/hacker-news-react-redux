@@ -1,3 +1,89 @@
 .ItemsList {
   list-style-type: none;
 }
+
+.Item {
+  display: table;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  padding: 10px 15px;
+}
+
+.Item-rank {
+  display: table-cell;
+  width: 35px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+.Item-rankId {
+  display: block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: $txt-white;
+  background-color: $bg-orange;
+  border-radius: 50%;
+}
+
+.Item-post {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.Item-postHeaderLink a, .Item-postHeaderTitle, .Item-author a {
+  text-decoration: none;
+}
+
+.Item-postHeaderTitle {
+  display: inline-block;
+  margin-right: 20px;
+  font-weight: bold;
+  color: $txt-dark;
+}
+
+.Item-postHeaderLink {
+  display: none;
+  @include bp($bp-small) {
+    display: block;
+    float: right;
+    font-style: italic;
+    color: $txt-color;
+    clear: both;
+  }
+}
+
+.Item-postFooter {
+  margin-top: 10px;
+  color: $txt-color;
+}
+
+.Item-author, .Item-author a {
+  color: $txt-color;
+}
+
+.Item-author a {
+  border-bottom: 1px dotted $txt-color;
+}
+
+.Item-author, .Item-grade, .Item-comments {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.Item-gradeIcon, .Item-commentsIcon, .Item-authorIcon {
+  display: inline-block!important;
+  width: 15px!important;
+  height: 15px!important;
+  color: $txt-color!important;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.Item-authorIdentity, .Item-gradeScore, .Item-commentsCounter {
+  display: inline-block;
+  vertical-align: middle;
+}

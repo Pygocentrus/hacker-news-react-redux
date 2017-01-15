@@ -10,7 +10,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div>Hello there!</div>
         <ItemsList items={this.props.topStories.items} />
       </div>
     );

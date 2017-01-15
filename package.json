@@ -9,11 +9,14 @@
     "serve": "webpack-dev-server --hot --inline --progress --colors --devtool source-map --config webpack.config.js"
   },
   "dependencies": {
+    "algoliasearch": "^3.20.3",
     "lodash": "^4.17.4",
+    "material-ui": "^0.16.6",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.2",
     "react-router": "^3.0.0",
+    "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0"
   },
   "devDependencies": {

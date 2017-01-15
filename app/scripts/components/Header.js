@@ -1,23 +1,55 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
+import { isUndefined } from 'lodash';
+import AppBar from 'material-ui/AppBar';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import { Link } from 'react-router';
 import * as routes from '../constants/routes';
 
-const Header = (props, context) =>
-  <nav className="Header">
-    <img src="https://news.ycombinator.com/y18.gif" alt="logo" className="Header-logo"/>
-    <div className="Header-content">
-      <h1 className="Header-title">Hacker News</h1>
-      <div className="Header-links">
-        <Link className="Header-linksItem" to="/">new</Link>&nbsp;|&nbsp;
-        <Link className="Header-linksItem" to="/">comments</Link>&nbsp;|&nbsp;
-        <Link className="Header-linksItem" to="/">show</Link>&nbsp;|&nbsp;
-        <Link className="Header-linksItem" to="/">ask</Link>&nbsp;|&nbsp;
-        <Link className="Header-linksItem" to="/">jobs</Link>&nbsp;|&nbsp;
-        <Link className="Header-linksItem" to="/">submit</Link>
-      </div>
-    </div>
-    <span className="Header-login"><Link to="/">login</Link></span>
-  </nav>;
+class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { isRightMenuOpen: false };
+  }
+
+  handleMenuItem = (e, child) => {
+    e.preventDefault();
+    if (!isUndefined(child)) {
+      this.toggleMenu();
+      // TODO: Navigate towards section using `child.props.primaryText`
+    }
+  }
+
+  toggleMenu = () => {
+    this.setState({ isRightMenuOpen: !this.state.isRightMenuOpen });
+  }
+
+  render() {
+    return (
+      <AppBar title="Hacker news" className="Header" iconClassNameLeft="i-hn-logo">
+        <div className="Header-links">
+          <IconMenu
+            onItemTouchTap={this.handleMenuItem}
+            onTouchTap={this.toggleMenu}
+            open={this.state.isRightMenuOpen}
+            className="Header-moreIcon"
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+            targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+          >
+            <MenuItem primaryText="News" />
+            <MenuItem primaryText="Comments" />
+            <MenuItem primaryText="Show" />
+            <MenuItem primaryText="Ask" />
+            <MenuItem primaryText="Jobs" />
+          </IconMenu>
+        </div>
+      </AppBar>
+    );
+  }
+}
 
 Header.contextTypes = {
   router: PropTypes.object.isRequired,

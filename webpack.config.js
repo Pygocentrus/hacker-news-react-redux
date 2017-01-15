@@ -64,5 +64,6 @@ module.exports = {
     new CleanWebpackPlugin(['dist']),
     new ExtractTextPlugin('app.css', { allChunks: true }),
     new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify(ENV) } }),
+    new CopyWebpackPlugin([{ from: 'img', to: 'img' }]),
   ],
 }

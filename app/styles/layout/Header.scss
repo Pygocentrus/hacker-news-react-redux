@@ -1,54 +1,25 @@
 .Header {
-  height: 24px;
-  position: relative;
-  background-color: $bg-orange;
-  box-sizing: border-box;
-}
-
-.Header-logo {
-  border: 1px solid $txt-white;
-  position: absolute;
-  transform: translateY(-50%);
-  top: 50%;
-  margin-left: 2px;
-}
-
-.Header-logo, .Header-title, .Header-linksItem {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.Header-content {
-  position: absolute;
-  transform: translateY(-50%);
-  top: 50%;
-  margin-left: 22px;
-  color: $txt-black;
-}
-
-.Header-title {
-  font-weight: bold;
-  color: $txt-black;
-  margin: 0 5px;
+  background-color: $bg-orange!important;
 }
 
 .Header-links {
-  display: inline-block;
+  margin-left: 200px;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  color: $txt-white;
 }
 
 .Header-linksItem, .Header-login a {
   text-decoration: none;
-  font-size: 12px;
-  color: $txt-black;
+  color: $txt-white;
 }
 
 .Header-linksItem {
-  display: inline-block;
+  margin-left: 10px;
 }
 
-.Header-login {
-  position: absolute;
-  transform: translateY(-50%);
-  top: 50%;
-  right: 5px;
+.Header-moreIcon svg {
+  color: $txt-white!important;
 }

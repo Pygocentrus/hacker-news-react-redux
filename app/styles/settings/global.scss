@@ -1,11 +1,7 @@
 body {
   min-height: 100vh;
   box-sizing: border-box;
-  font-family: Verdana, Geneva, sans-serif;
+  font-family: Roboto, Verdana, Geneva, sans-serif;
   font-size: 15px;
   color: $txt-color;
-
-  @include bp($bp-small) {
-    margin: 8px;
-  }
 }

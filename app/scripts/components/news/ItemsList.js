@@ -1,24 +1,41 @@
 import React, { PropTypes, Component } from 'react';
+import Paper from 'material-ui/Paper';
+import Grade from 'material-ui/svg-icons/action/grade';
+import ChatBubble from 'material-ui/svg-icons/communication/chat-bubble';
+import Person from 'material-ui/svg-icons/social/person';
 import domainFromUrl from '../../utils/domainFromUrl';
 import { userPage } from '../../utils/hnConf';
 
 const getItems = (items) =>
   items.map((item, index) =>
-    <li key={item.id} className="Item">
-      <div className="Item-rank">
-        <span className="Item-id">{index + 1}</span>
-      </div>
-      <div className="Item-post">
-        <a href={item.url} className="Item-postHeader" target="_blank">
-          <h2 className="Item-postHeaderTitle">{item.title}</h2>
-          <span className="Item-postHeaderLink">({domainFromUrl(item.url)})</span>
-        </a>
-        <div className="Item-postFooter">
-          {item.score} points by&nbsp;
-          <a href={userPage(item.by)} target="_blank">{item.by}</a>&nbsp;
-          | {item.kids && item.kids.length} comments
+    <li key={item.id}>
+      <Paper zDepth={1} className="Item">
+        <div className="Item-rank">
+          <span className="Item-rankId">{index + 1}</span>
         </div>
-      </div>
+        <div className="Item-post">
+          <a href={item.url} className="Item-postHeader" target="_blank">
+            <h2 className="Item-postHeaderTitle">{item.title}</h2>
+            <span className="Item-postHeaderLink">({domainFromUrl(item.url)})</span>
+          </a>
+          <div className="Item-postFooter">
+            <div className="Item-author">
+              <div className="Item-authorIdentity">
+                <Person className="Item-authorIcon" />
+                <a href={userPage(item.by)} target="_blank">{item.by}</a>&nbsp;
+              </div>
+            </div>
+            <div className="Item-grade">
+              <Grade className="Item-gradeIcon" />
+              <div className="Item-gradeScore">{item.score}</div>
+            </div>
+            <div className="Item-comments">
+              <ChatBubble className="Item-commentsIcon" />
+              <div className="Item-commentsCounter">{item.kids && item.kids.length || 0}</div>
+            </div>
+          </div>
+        </div>
+      </Paper>
     </li>
   );
 

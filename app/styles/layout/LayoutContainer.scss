@@ -1,12 +1,7 @@
 .LayoutContainer {
-  width: 100%;
 
-  @include bp($bp-small) {
-    width: 85%;
-    margin: 0 auto;
-  }
 }
 
-.LayoutContainer-content {
-  background-color: $bg-pale-yellow;
+.LayoutContainer-child {
+  padding: 20px;
 }
