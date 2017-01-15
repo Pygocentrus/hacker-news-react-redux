@@ -32,6 +32,10 @@
 .Item-post {
   display: table-cell;
   vertical-align: middle;
+
+  & a:visited .Item-postHeaderTitle {
+    color: $txt-color;
+  }
 }
 
 .Item-postHeaderLink a, .Item-postHeaderTitle, .Item-author a {
