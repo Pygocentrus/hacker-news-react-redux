@@ -15,4 +15,4 @@ $ npm run build # if you need to build the app statically within `dist` folder
 ## TODO
 
 - [ ] Create a prod webpack env
-- [ ] Use real-time algolia's API to provide a meaningful search bar
+- [ ] Host it somewhere?
