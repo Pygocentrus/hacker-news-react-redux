@@ -9,13 +9,12 @@ import * as routes from './constants/routes';
 import configureStore from './store/configureStore';
 import LayoutContainer from './containers/LayoutContainer';
 import HomeContainer from './containers/HomeContainer';
+import SearchContainer from './containers/SearchContainer';
 
 const store = configureStore();
 
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
-
-console.log('ENV:', process.env.NODE_ENV);
 
 const App = () =>
   <Provider store={store}>
@@ -23,6 +22,7 @@ const App = () =>
       <Router history={browserHistory}>
         <Route component={LayoutContainer}>
           <Route path={routes.HOME} component={HomeContainer} />
+          <Route path={routes.SEARCH} component={SearchContainer} />
         </Route>
       </Router>
     </MuiThemeProvider>

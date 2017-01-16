@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-
-import { getNewsStories, getTopStories } from '../actions/api';
+import { getTopStories } from '../actions/api';
 import Home from '../components/views/Home';
 
 const mapStateToProps = (state) => {

@@ -8,6 +8,7 @@ import Time from 'material-ui/svg-icons/action/watch-later';
 
 import domainFromUrl from '../../utils/domainFromUrl';
 import { userPage, itemPage } from '../../utils/hnConf';
+import wrapHtml from '../../utils/wrapHtml';
 
 const timeagoInstance = new timeago();
 
@@ -19,14 +20,14 @@ const getItem = (item, index) =>
       </div>
       <div className="Item-post">
         <a href={!!item.url ? item.url : itemPage(item.id)} className="Item-postHeader" target="_blank">
-          <h2 className="Item-postHeaderTitle">{item.title}</h2>
+          <h2 className="Item-postHeaderTitle" dangerouslySetInnerHTML={wrapHtml(item.title)} />
           {!!item.url ? <span className="Item-postHeaderLink">({domainFromUrl(item.url)})</span> : null}
         </a>
         <div className="Item-postFooter">
           <div className="Item-author">
             <div className="Item-authorIdentity">
               <Person className="Item-authorIcon" />
-              <a href={userPage(item.by)} target="_blank">{item.by}</a>&nbsp;
+              <a href={userPage(item.by)} target="_blank" dangerouslySetInnerHTML={wrapHtml(item.by)} />&nbsp;
             </div>
           </div>
           <div className="Item-grade">

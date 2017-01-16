@@ -17,17 +17,21 @@ class Header extends Component {
     this.state = { isRightMenuOpen: false };
   }
 
+  backToDashboard = () => {
+    this.context.router.push(routes.HOME);
+  }
+
   handleMenuItem = (e, child) => {
     e.preventDefault();
     if (!isUndefined(child)) {
       this.toggleMenu();
 
       switch (child.props.primaryText) {
-        case sections.TOP: { this.props.getTopStories(); break; }
-        case sections.NEWS: { this.props.getNewsStories(); break; }
-        case sections.SHOW: { this.props.getShowStories(); break; }
-        case sections.ASK: { this.props.getAskStories(); break; }
-        case sections.JOBS: { this.props.getJobsStories(); break; }
+        case sections.TOP: { this.props.getTopStories(); this.backToDashboard(); break; }
+        case sections.NEWS: { this.props.getNewsStories(); this.backToDashboard(); break; }
+        case sections.SHOW: { this.props.getShowStories(); this.backToDashboard(); break; }
+        case sections.ASK: { this.props.getAskStories(); this.backToDashboard(); break; }
+        case sections.JOBS: { this.props.getJobsStories(); this.backToDashboard(); break; }
         default:
       }
     }
@@ -39,7 +43,7 @@ class Header extends Component {
 
   render() {
     return (
-      <AppBar title="Hacker news" className="Header" iconClassNameLeft="i-hn-logo">
+      <AppBar title="Hacker news" className="Header" iconClassNameLeft="i-hn-logo" onLeftIconButtonTouchTap={this.backToDashboard}>
         <div className="Header-links">
           <IconMenu
             onItemTouchTap={this.handleMenuItem}
