@@ -8,6 +8,17 @@ const autoprefixer = require('autoprefixer');
 const ENV = process.env.NODE_ENV || 'development';
 const PRODUCTION = ENV === 'production';
 
+const plugins = [
+  new CleanWebpackPlugin(['dist']),
+  new ExtractTextPlugin('app.css', { allChunks: true }),
+  new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify(ENV) } }),
+  new CopyWebpackPlugin([{ from: 'img', to: 'img' }]),
+];
+
+if (PRODUCTION) {
+  plugins.push(new webpack.optimize.UglifyJsPlugin({ comments: false, sourceMap: true, warnings: false }));
+}
+
 module.exports = {
   context: __dirname + "/app",
 
@@ -60,10 +71,5 @@ module.exports = {
 
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
 
-  plugins: [
-    new CleanWebpackPlugin(['dist']),
-    new ExtractTextPlugin('app.css', { allChunks: true }),
-    new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify(ENV) } }),
-    new CopyWebpackPlugin([{ from: 'img', to: 'img' }]),
-  ],
+  plugins,
 }

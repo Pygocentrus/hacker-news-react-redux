@@ -9,7 +9,9 @@ To run the project, make sure you have [Yarn](https://yarnpkg.com) installed. Th
 ```bash
 $ yarn # installs dependencies
 $ npm run serve # starts the webpack dev server
+
 $ npm run build # if you need to build the app statically within `dist` folder
+$ npm run try # Try the built static files
 ```
 
 ## TODO

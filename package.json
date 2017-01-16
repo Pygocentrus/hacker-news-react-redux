@@ -6,10 +6,12 @@
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV=production node_modules/.bin/webpack --config webpack.config.js",
-    "serve": "node_modules/.bin/webpack-dev-server --hot --inline --progress --colors --devtool source-map --config webpack.config.js"
+    "serve": "node_modules/.bin/webpack-dev-server --hot --inline --progress --colors --devtool source-map --config webpack.config.js",
+    "try": "node static-server.js"
   },
   "dependencies": {
     "algoliasearch": "^3.20.3",
+    "express": "^4.14.0",
     "lodash": "^4.17.4",
     "material-ui": "^0.16.6",
     "react": "^15.4.1",
