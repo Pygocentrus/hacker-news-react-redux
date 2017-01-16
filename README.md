@@ -1,6 +1,6 @@
 # Hacker news clone
 
-Tiny project to play around with [Hacker News](http://news.ycombinator.com) API using React/Redux.
+Tiny project to play around with [Hacker News](http://news.ycombinator.com) API using React/Redux. Demo [Here](http://hacker-news-react-redux.surge.sh/).
 
 ## Getting started
 
@@ -14,7 +14,11 @@ $ npm run build # if you need to build the app statically within `dist` folder
 $ npm run try # Try the built static files
 ```
 
-## TODO
+## Deploy it using Surge
 
-- [ ] Create a prod webpack env
-- [ ] Host it somewhere?
+If you wanna host it for free somewhere, use [Surge.sh](http://surge.sh/) following the next steps:
+
+```bash
+$ sudo npm i -g surge # install Surge
+$ npm run deploy # then target the `dist` folder and choose your DNS!
+```

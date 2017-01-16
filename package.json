@@ -7,7 +7,8 @@
   "scripts": {
     "build": "NODE_ENV=production node_modules/.bin/webpack --config webpack.config.js",
     "serve": "node_modules/.bin/webpack-dev-server --hot --inline --progress --colors --devtool source-map --config webpack.config.js",
-    "try": "node static-server.js"
+    "try": "node static-server.js",
+    "deploy": "node_modules/.bin/surge"
   },
   "dependencies": {
     "algoliasearch": "^3.20.3",
