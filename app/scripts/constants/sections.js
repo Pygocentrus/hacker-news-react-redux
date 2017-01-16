@@ -1,3 +1,4 @@
+export const SEARCH = 'Search';
 export const TOP = 'Top';
 export const NEWS = 'News';
 export const SHOW = 'Show';

@@ -1,4 +1,4 @@
-export const MAX_NEWS = 10;
+export const MAX_NEWS = 5;
 
 export const conf = {
   apiBase: 'https://hacker-news.firebaseio.com/v0',
