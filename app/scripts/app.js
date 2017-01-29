@@ -17,7 +17,6 @@ import SearchContainer from './containers/SearchContainer';
 const store = configureStore();
 
 if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
-  console.info('register SW');
   const registration = runtime.register();
 }
 

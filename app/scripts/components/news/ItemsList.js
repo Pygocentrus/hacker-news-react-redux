@@ -19,7 +19,7 @@ const getItem = (item, index) =>
         <span className="Item-rankId">{index + 1}</span>
       </div>
       <div className="Item-post">
-        <a href={!!item.url ? item.url : itemPage(item.id)} className="Item-postHeader" target="_blank">
+        <a href={!!item.url ? item.url : itemPage(item.id)} className="Item-postHeader" target="_blank" rel="noopener">
           <h2 className="Item-postHeaderTitle" dangerouslySetInnerHTML={wrapHtml(item.title)} />
           {!!item.url ? <span className="Item-postHeaderLink">({domainFromUrl(item.url)})</span> : null}
         </a>
@@ -27,7 +27,7 @@ const getItem = (item, index) =>
           <div className="Item-author">
             <div className="Item-authorIdentity">
               <Person className="Item-authorIcon" />
-              <a href={userPage(item.by)} target="_blank" dangerouslySetInnerHTML={wrapHtml(item.by)} />&nbsp;
+              <a href={userPage(item.by)} target="_blank" rel="noopener" dangerouslySetInnerHTML={wrapHtml(item.by)} />&nbsp;
             </div>
           </div>
           <div className="Item-grade">
