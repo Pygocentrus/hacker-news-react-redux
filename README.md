@@ -1,6 +1,6 @@
 # Hacker news clone
 
-Tiny project to play around with [Hacker News](http://news.ycombinator.com) API using React/Redux. Demo [Here](http://hacker-news-react-redux.surge.sh/).
+Tiny project to play around with [Hacker News](http://news.ycombinator.com) API using React/Redux. Demo [Here](https://hacker-news-react-redux.surge.sh/).
 
 ## Getting started
 
