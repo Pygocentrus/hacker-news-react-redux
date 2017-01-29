@@ -4,15 +4,21 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
+const pkg = require('./package.json');
 
 const ENV = process.env.NODE_ENV || 'development';
 const PRODUCTION = ENV === 'production';
+const DEPENDENCIES = Object.keys(pkg.dependencies) || [];
 
 const plugins = [
   new CleanWebpackPlugin(['dist']),
   new ExtractTextPlugin('app.css', { allChunks: true }),
   new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify(ENV) } }),
-  new CopyWebpackPlugin([{ from: 'img', to: 'img' }]),
+  new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+  new CopyWebpackPlugin([
+    { from: 'img', to: 'img' },
+    { from: 'manifest.json', to: 'manifest.json' }
+  ]),
 ];
 
 if (PRODUCTION) {
@@ -20,9 +26,25 @@ if (PRODUCTION) {
 }
 
 module.exports = {
-  context: __dirname + "/app",
+  stats: { warnings: !PRODUCTION },
+
+  devtool: PRODUCTION ? 'cheap-module-source-map': 'cheap-module-eval-source-map',
+
+  devServer: {
+    outputPath: __dirname + '/dist',
+    hot: true,
+    port: 3000,
+  },
+
+  resolve: {
+    extensions: ['', '.js', '.jsx', '.json'],
+    root: path.resolve(__dirname, './app/scripts'),
+  },
+
+  context: __dirname + '/app',
 
   entry: {
+    vendor: DEPENDENCIES,
     js: './scripts/app.js',
     css: './styles/app.scss',
     html: './index.html',
@@ -32,17 +54,6 @@ module.exports = {
     filename: 'bundle.js',
     chunkFilename: '[name].chunk-[hash].js',
     path: __dirname + '/dist',
-  },
-
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.json'],
-    root: path.resolve(__dirname, './app/scripts'),
-  },
-
-  devServer: {
-    outputPath: __dirname + '/dist',
-    hot: true,
-    port: 3000,
   },
 
   module: {
