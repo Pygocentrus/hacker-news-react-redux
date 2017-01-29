@@ -1,3 +1,5 @@
+![HN clone](images/header.png)
+
 # Hacker news clone
 
 Tiny project to play around with [Hacker News](http://news.ycombinator.com) API using React/Redux. Demo [Here](https://hacker-news-react-redux.surge.sh/).
@@ -22,3 +24,17 @@ If you wanna host it for free somewhere, use [Surge.sh](http://surge.sh/) follow
 $ sudo npm i -g surge # install Surge
 $ npm run deploy # then target the `dist` folder and choose your DNS!
 ```
+
+## Overview
+
+### Filters
+
+Quick filters to sort by Top, Latest, Show and Ask stories, as well as job offers
+
+![HN clone](images/hn_show.gif)
+
+### Search using Algolia real-time search API
+
+Search among HN posts
+
+![HN clone](images/hn_search.gif)
