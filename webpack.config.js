@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const pkg = require('./package.json');
 
@@ -19,10 +20,18 @@ const plugins = [
     { from: 'img', to: 'img' },
     { from: 'manifest.json', to: 'manifest.json' }
   ]),
+  new ServiceWorkerWebpackPlugin({
+    entry: path.join(__dirname, 'app/scripts/sw.js'),
+    excludes: ['**/.*', '**/*.map', '*.html'],
+  })
 ];
 
 if (PRODUCTION) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin({ comments: false, sourceMap: true, warnings: false }));
+  plugins.push(
+    new webpack.optimize.UglifyJsPlugin({ comments: false, sourceMap: true, warnings: false }),
+    new webpack.optimize.AggressiveMergingPlugin(),
+    new webpack.optimize.DedupePlugin()
+  );
 }
 
 module.exports = {
