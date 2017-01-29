@@ -6,7 +6,6 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import { Link } from 'react-router';
 
 import * as routes from '../constants/routes';
 import * as sections from '../constants/sections';
@@ -37,6 +36,10 @@ class Header extends Component {
     }
   }
 
+  moveToSearch = () => {
+    this.context.router.push(routes.SEARCH);
+  }
+
   toggleMenu = () => {
     this.setState({ isRightMenuOpen: !this.state.isRightMenuOpen });
   }
@@ -54,9 +57,7 @@ class Header extends Component {
             anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
             targetOrigin={{ horizontal: 'right', vertical: 'top' }}
           >
-            <MenuItem>
-              <Link to={routes.SEARCH} className="Header-searchLink">{sections.SEARCH}</Link>
-            </MenuItem>
+            <MenuItem onTouchTap={this.moveToSearch} primaryText={sections.SEARCH} />
             <Divider />
             <MenuItem primaryText={sections.TOP} />
             <MenuItem primaryText={sections.NEWS} />

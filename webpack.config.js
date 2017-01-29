@@ -16,6 +16,7 @@ const plugins = [
   new ExtractTextPlugin('app.css', { allChunks: true }),
   new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify(ENV) } }),
   new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
+  new webpack.HotModuleReplacementPlugin(),
   new CopyWebpackPlugin([
     { from: 'img', to: 'img' },
     { from: 'manifest.json', to: 'manifest.json' }

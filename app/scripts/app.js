@@ -4,9 +4,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-
 import runtime from 'serviceworker-webpack-plugin/lib/runtime';
-import registerEvents from 'serviceworker-webpack-plugin/lib/browser/registerEvents';
 
 import * as routes from './constants/routes';
 import configureStore from './store/configureStore';
@@ -16,7 +14,7 @@ import SearchContainer from './containers/SearchContainer';
 
 const store = configureStore();
 
-if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
+if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
   const registration = runtime.register();
 }
 
