@@ -6,6 +6,7 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import enhanceWithClickOutside from 'react-click-outside';
 
 import * as routes from '../constants/routes';
 import * as sections from '../constants/sections';
@@ -41,6 +42,10 @@ class Header extends Component {
   }
 
   toggleMenu = () => {
+    this.setState({ isRightMenuOpen: !this.state.isRightMenuOpen });
+  }
+
+  handleClickOutside = () => {
     this.setState({ isRightMenuOpen: !this.state.isRightMenuOpen });
   }
 
@@ -83,4 +88,4 @@ Header.propTypes = {
   getJobsStories: PropTypes.func.isRequired,
 };
 
-export default Header;
+export default enhanceWithClickOutside(Header);
