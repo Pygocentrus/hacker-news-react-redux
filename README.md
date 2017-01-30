@@ -1,5 +1,7 @@
 ![HN clone](images/header.png)
 
+[![deploy](https://img.shields.io/badge/status-deployed-green.svg)](https://hacker-news-react-redux.surge.sh/) ![licence](https://img.shields.io/badge/Licence-MIT-blue.svg)
+
 # Hacker news clone
 
 Tiny project to play around with [Hacker News](http://news.ycombinator.com) API using React/Redux. Demo [Here](https://hacker-news-react-redux.surge.sh/).

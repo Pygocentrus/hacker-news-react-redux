@@ -1,6 +1,6 @@
 {
-  "name": "hacker-news-clone",
-  "version": "1.0.0",
+  "name": "hacker-news-react-redux",
+  "version": "0.0.2",
   "main": "index.js",
   "author": "Pygocentrus",
   "license": "MIT",
